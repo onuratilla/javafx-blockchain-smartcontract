@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="view.MainController">
+    <top>
+        <VBox spacing="10" padding="10">
+            <Label text="Yeni İşlem Oluştur"/>
+            <HBox spacing="10">
+                <TextField fx:id="fromField" promptText="Gönderen Cüzdan"/>
+                <TextField fx:id="toField" promptText="Alıcı Cüzdan"/>
+                <TextField fx:id="amountField" promptText="Miktar"/>
+                <Button text="Gönder" onAction="#handleCreateTransaction"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="transactionTable">
+            <columns>
+                <TableColumn text="ID" fx:id="colId"/>
+                <TableColumn text="From" fx:id="colFrom"/>
+                <TableColumn text="To" fx:id="colTo"/>
+                <TableColumn text="Amount" fx:id="colAmount"/>
+                <TableColumn text="From✓" fx:id="colFromApproved"/>
+                <TableColumn text="To✓" fx:id="colToApproved"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="10" padding="10">
+            <TextField fx:id="approveWalletField" promptText="Cüzdan Adresi"/>
+            <TextField fx:id="approveTxField" promptText="İşlem ID"/>
+            <Button text="Onayla" onAction="#handleApproveTransaction"/>
+        </HBox>
+    </bottom>
+</BorderPane>
